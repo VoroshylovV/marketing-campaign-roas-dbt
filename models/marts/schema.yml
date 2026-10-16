@@ -1,0 +1,16 @@
+version: 2
+models:
+  - name: mart_campaign_daily
+    description: "Денна вітрина окупності кампаній (spend, installs, revenue, profit, CPI, ROAS)"
+    columns:
+      - name: report_date
+        data_tests:
+          - not_null
+      - name: campaign_id
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+      - name: spend
+        data_tests:
+          - not_null

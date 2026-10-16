@@ -1,0 +1,10 @@
+version: 2
+sources:
+  - name: test_app_dataset
+    database: mornhouse-test-environment
+    schema: test_app_dataset
+    tables:
+      - name: cost_table
+      - name: non_org_installs_report
+      - name: ad_revenue_raw
+      - name: in_app_events_report

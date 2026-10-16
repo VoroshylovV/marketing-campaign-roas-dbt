@@ -1,0 +1,14 @@
+name: mornhouse_dbt
+version: '1.0.0'
+profile: mornhouse_dbt
+model-paths: ["models"]
+test-paths: ["tests"]
+vars:
+  start_date: '2026-06-01'
+  end_date: '2026-07-31'
+models:
+  mornhouse_dbt:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

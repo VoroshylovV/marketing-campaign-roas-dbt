@@ -1,0 +1,10 @@
+mornhouse_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: test-task-507512
+      dataset: dbt_mornhouse
+      location: US
+      threads: 4
