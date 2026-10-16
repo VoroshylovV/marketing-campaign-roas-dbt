@@ -1,6 +1,6 @@
 # Mornhouse campaign profitability: dbt + BigQuery
 
-A small dbt project that rebuilds a marketing profitability mart (spend, installs, ad and purchase revenue, profit, CPI, ROAS by campaign and day) from four raw BigQuery tables. It started as a single 130-line ad-hoc SQL query and is now a tested, layered dbt project.
+A small dbt project that rebuilds a marketing profitability mart (spend, installs, ad and purchase revenue, profit, CPI, ROAS by campaign and day) from four raw BigQuery tables. It started as a single ~100-line ad-hoc SQL query and is now a tested, layered dbt project.
 
 ## Data
 Source: `mornhouse-test-environment.test_app_dataset` (public test dataset). Period in the data: 2026-06-01 to 2026-07-26.
@@ -30,7 +30,7 @@ The original ad-hoc query joined four tables on `campaign_id`. In the revenue an
 
 Fix: in staging, empty IDs are replaced with `'unknown'` so the rows join. After the fix all totals match, and the test `assert_reconciliation` fails the build if any metric drifts again.
 
-Impact: blended ROAS on the full period moves from about 279% to about 376%. Revenue and installs without a campaign ID have zero spend, so CPI and ROAS for the `unknown` bucket are empty by design.
+Impact: blended ROAS on the full period moves from about 279% to about 375%. Revenue and installs without a campaign ID have zero spend, so CPI and ROAS for the `unknown` bucket are empty by design.
 
 ## Notes
 - Metrics use `safe_divide`, so zero spend or zero installs gives NULL instead of an error.
