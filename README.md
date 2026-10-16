@@ -1,4 +1,5 @@
 # Marketing campaign ROAS: dbt + BigQuery
+Дані тестового завдання (Junior Data Analyst)
 
 A small dbt project that rebuilds a marketing profitability mart (spend, installs, ad and purchase revenue, profit, CPI, ROAS by campaign and day) from four raw BigQuery tables. It started as a single ~100-line ad-hoc SQL query and is now a tested, layered dbt project.
 
