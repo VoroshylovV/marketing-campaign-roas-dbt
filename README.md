@@ -18,6 +18,9 @@ Source: `mornhouse-test-environment.test_app_dataset` (public test dataset). Per
 
 Run: `dbt run` then `dbt test`.
 
+## Lineage
+![dbt lineage graph](lineage.png)
+
 ## Data quality finding
 The original ad-hoc query joined four tables on `campaign_id`. In the revenue and install tables part of the rows have an empty `campaign_id`, and in SQL `NULL = NULL` never matches, so those rows were silently dropped from the result. The dbt `not_null` test on `campaign_id` flagged 56 rows (one per day), and a reconciliation of source totals against the mart showed the loss:
 
